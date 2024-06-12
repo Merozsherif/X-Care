@@ -1,0 +1,158 @@
+<section class="cart" >
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-lg-8 m-auto">
+<div class="box">
+  <div class="cart_products">
+    <div class="row">
+      <div *ngIf="order.length==0">
+        <h3 class="text-center">
+          No orders in the cart
+        </h3>
+      </div>
+      <div class="col-md-12"  *ngFor="let item of order ; let i=index">
+        <div class="card mb-3 " >
+          <img class="delete" src="assets/img/delete.jpeg" alt="" (click)='deleteItems(i , order[i].id)'>
+          <div class="row ">
+            <div class="col-lg-3 col-md-4">
+
+                  <img width="100%" style="    object-fit: fill;
+                  height: 150px;" [src]="'https://ai-x-care.future-developers.cloud/'+order[i]?.product.photo
+                  " alt="" onerror="this.src='assets/img/banner_side_img.svg'">
+
+            </div>
+            <!-- details -->
+            <div class="col-md-8 col-lg-9">
+              <div class="card-body">
+
+                <p class="card-text mt-3">Care</p>
+                <h5 class="card-title mb-3">{{order[i]?.product.name}}</h5>
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-6">
+                    <div  class="sign_in_container ">
+                      {{order[i]?.quantity}}box
+                    </div>
+
+
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-6">
+                    <span class="sign_in_container  fw-bold">{{order[i]?.total}}  EGP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 total_price">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+<span >Shipment Subtotal</span>
+<span> {{total}} EGP</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span>Delivery Fees</span>
+          <span> 10 EGP</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span>Total</span>
+                    <span> {{total +10}} EGP</span>
+                            </div>
+      </div>
+
+      <div class="col-md-12 mt-4">
+        <div class="row form__group mb-4">
+
+          <div class="col-md-3">
+           <div class="radio-group">
+             <input  (change)="handleChange($event)" value='card'  id="small" type="radio" class="radio-input" name="size" />
+             <label for="small" class="radio-label" >
+               <span class="radio-button"></span>
+               <span class="radio-label-text ms-3 fw-bold"> Card </span></label>
+           </div>
+          </div>
+
+          <div class="col-md-3">
+           <div class="radio-group">
+             <input (change)="handleChange($event)" [checked]="value=='cash'" class="radio-label" value='cash' id="large" type="radio" class="radio-input" name="size" />
+             <label for="large" >
+               <span class="radio-button"></span>
+               <span class="radio-label-text ms-3 fw-bold"> Cash </span> </label>
+           </div>
+          </div>
+
+       </div>
+        <div class="form_container" *ngIf="card">
+
+          <form  [formGroup]="form">
+
+            <div class="mb-4">
+              <label for="exampleInputEmail1" class="form-label"> Name Of Card </label>
+              <input  formControlName="name" [ngClass]="{'is-invalid':submitted && form.get('name')?.errors}"  placeholder="Name Of Card" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputPassword1" class="form-label"> Card Number</label>
+              <input formControlName="number" [ngClass]="{'is-invalid':submitted && form.get('number')?.errors}" placeholder="Card Number"   type="text" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-4 form-check">
+             <div class="row">
+              <div class="col-md-4">
+                <div class="mb-4">
+                  <label for="exampleInputPassword1" class="form-label"> Expiration date</label>
+                  <input placeholder="00/00"  formControlName="expire" [ngClass]="{'is-invalid':submitted && form.get('expire')?.errors}"  type="text" class="form-control" id="e2xampleInputPassword1">
+                </div>
+              </div>
+              <div class="col-md-4 ">
+
+                <div class="mb-4">
+                  <label for="exampleInputPassword1" class="form-label">Cnn</label>
+                  <input  formControlName="cnn" [ngClass]="{'is-invalid':submitted && form.get('cnn')?.errors}" placeholder="****"  type="password" class="form-control" id="e3xampleInputPassword1">
+                </div>
+              </div>
+             </div>
+            </div>
+            <!-- <button type="submit" class="btn mb-3">Sign in</button> -->
+
+          </form>
+
+        </div>
+       <form  [formGroup]="formCash">
+        <div class="mb-4">
+          <label  class="form-label"><img class="me-2" src="../../../../assets/img/location.jpeg" alt=""> Address </label>
+          <input  formControlName="address" [ngClass]="{'is-invalid':submitted && formCash.get('address')?.errors}" placeholder="Address" type="text" class="form-control"  aria-describedby="emailHelp">
+        </div>
+        <div class="mb-4">
+          <label  class="form-label"> <img  class="me-2" src="../../../../assets/img/phone.jpeg" alt="">Number Phone</label>
+          <input  formControlName="phone" [ngClass]="{'is-invalid':submitted && formCash.get('phone')?.errors}" placeholder="Number Phone"  type="text" class="form-control" >
+        </div>
+       </form>
+        <button class="btn mb-3" (click)="openModal()">Confirm</button>
+        <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+    <div   class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display} " style="transition: .5s ease-in-out; width: 100vw;height: 100vh;background-color: rgba(255, 255, 255, 0.582);">
+         <div  class="modal-dialog" role="document" style="margin-top: 10%;">
+               <div class="modal-content">
+
+                <div class="modal-body  text-center py-3">
+<img src="assets/img/seccuss.jpeg" alt="">
+<h4 style="line-height: 1.8; margin-top: 20px;">
+  The purchase has been successful and you will receive it within an soon
+</h4>
+
+                         </div>
+                     <div class="modal-footer" style="border: none;">
+                           <button type="button" class="btn" (click)="onCloseHandled()" >Back To Home</button>
+                         </div>
+            </div>
+             </div>
+ </div>
+      </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

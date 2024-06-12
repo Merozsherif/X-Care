@@ -1,0 +1,94 @@
+<section class="Xcare_doctors">
+  <div class="Xcare_doctors_banner">
+   <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="Xcare_home_banner_sideLeft"  data-aos="fade-up" data-aos-duration="3000" >
+          <h3>
+            Stay Healthy And Healthy With
+          </h3>
+          <img src="assets/img/X carey 2.png" alt="" style="width: 80%;">
+        </div>
+
+        </div>
+<div class="col-md-1"></div>
+      <div class="col-md-4 mb-0" data-aos="fade-down" data-aos-duration="3000">
+        <img src="assets/img/doctors.png" alt="" >
+      </div>
+    </div>
+   </div>
+   </div>
+   <div class="row">
+    <div class="col-lg-8 m-auto">
+      <form >
+<div class="row">
+  <div class="col-md-3 col-6" style="
+    border-right: 1px solid #00507C;">
+
+  <div class="form-group">
+    <img src="assets/img/person_icon.svg" alt="">
+    <input [(ngModel)]="name" [ngModelOptions]="{standalone: true}"  type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Doctor Name">
+    </div>
+  </div>
+  <div class="col-md-3 col-6" style="
+  border-right: 1px solid #00507C;">
+
+    <div class="form-group">
+      <img src="assets/img/Frame.png" alt="">
+      <select [(ngModel)]="city" [ngModelOptions]="{standalone: true}"  class="form-control" >
+        <option value="">Choose City</option>
+        <option [value]="item" *ngFor="let item of cities">{{item}}</option>
+      </select>
+      </div>
+    </div>
+    <div class="col-md-4 col-9" style="
+    border-right: 1px solid #00507C;">
+
+      <div class="form-group">
+        <img src="assets/img/spicialist.png" alt="">
+        <select [(ngModel)]="specialites"  [ngModelOptions]="{standalone: true}" class="form-control" >
+          <option value="" >Choose Spicialty</option>
+          <option [value]="item.id" *ngFor="let item of Spicialations">{{item.name}}</option>
+
+        </select>
+      </div>
+      </div>
+      <div class="col-md-2 col-3">
+
+        <div class="form-group">
+          <button (click)="createList()">
+            <img src="assets/img/search.png" alt="" style="width: 50px;height: 50px;top:0px">
+          </button>
+          </div>
+        </div>
+</div>
+      </form>
+    </div>
+   </div>
+   <div class="Xcare_medicine_category" >
+    <div class="container">
+      <div class="row" *ngIf="loading" >
+        <div class="col-md-4 col-lg-3 col-sm-6 mb-3" *ngFor="let item of [].constructor(8)">
+          <div class="ph-item">
+            <div class="ph-col-12">
+                <div class="ph-picture"></div>
+                <div class="ph-row">
+                    <div class="ph-col-12 big mt-3"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!loading" >
+        <div class="col-md-4 col-lg-3 col-sm-6 mb-3" data-aos="zoom-in" data-aos-duration="3000" *ngFor="let item of Spicialations;let i=index">
+         <div class="card Xcare_medicine_category_item mb-4" (click)="routerToDoctorsSpicials(item)" >
+          <img [src]="item.image" alt="" onerror="this.src='assets/img/banner_side_img.svg'">
+          <h6 class="text-center mt-3 mb-4 fw-bold">
+           {{item.name}}
+          </h6>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

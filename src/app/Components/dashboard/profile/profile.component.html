@@ -1,0 +1,149 @@
+<section class="profile">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 col-sm-3 col-3 left">
+        <div class="bord">
+          <p>Personal Info</p>
+          <ul>
+            <li class="active">
+              <a [routerLink]="['/profile']">
+                <img src="../../../../assets/dashboard/name.svg " alt="">
+                <span>Profile</span>
+              </a>
+            </li>
+            <li *ngIf="userRole === 'doctor'">
+              <a [routerLink]="['/doctor']" >
+                <img src="../../../../assets/dashboard/doctor.svg" alt="">
+                <span>Doctor</span>
+              </a>
+            </li>
+            <li *ngIf="userRole === 'doctor'">
+              <a [routerLink]="['/clinic']">
+                <img src="../../../../assets/dashboard/clinic.svg" alt="">
+                <span>Clinic</span>
+              </a>
+            </li>
+          </ul>
+          <p>Reservation History</p>
+          <ul>
+            <li>
+              <a [routerLink]="['/myReservations']">
+                <img src="../../../../assets/dashboard/myReservations.svg" alt="">
+                <span>My Reservations</span>
+              </a>
+            </li>
+            <li *ngIf="userRole === 'doctor'">
+              <a [routerLink]="['/clinicReservations']">
+                <img src="../../../../assets/dashboard/clinicReservations.svg" alt="">
+                <span>Clinic Reservations</span>
+              </a>
+            </li>
+            <li *ngIf="userRole === 'doctor'">
+              <a [routerLink]="['/patiantPrescriptions']">
+                <img src="../../../../assets/dashboard/patientPrescription.svg" alt="">
+                <span>Patiant Prescriptions</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/Prescriptions']">
+                <img src="../../../../assets/dashboard/prescriptions.svg" alt="">
+                <span>Prescriptions</span>
+              </a>
+            </li>
+          </ul>
+          <p *ngIf="userRole === 'doctor'">My Blog Posts</p>
+          <ul *ngIf="userRole === 'doctor'">
+            <li>
+              <a [routerLink]="['/myPost']">
+                <img src="../../../../assets/dashboard/myPost.svg" alt="">
+                <span>My Post</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9 col-lg-9 col-sm-9 col-9 right">
+        <!-- <form [formGroup]="profileForm" enctype="multipart/form-data"> -->
+
+        <div class="box">
+          <img id="photo" [src]="url" alt="">
+          <input type="file" class="form-control" formControlName="photo" (change)="selectImage($event)" />
+        </div>
+        <!-- </form> -->
+        <form [formGroup]="profileForm" (ngSubmit)="editProfileData()" enctype="multipart/form-data">
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/name.svg" alt="">First Name</label>
+            <div class="edit">
+              <input type="text" formControlName="firstName" placeholder="">
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/name.svg" alt="">Last Name</label>
+            <div class="edit">
+              <input type="text" formControlName="lastName" placeholder="">
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/gender.svg" alt="">Gender</label>
+            <div class="edit">
+              <select formControlName="gender">
+                <option value="">Choose Your Gender</option>
+                <option [value]="item" *ngFor="let item of genders">{{item}}</option>
+              </select>
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/age.svg" alt="">Age</label>
+            <div class="edit">
+              <input type="number" formControlName="age">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/mail.svg" alt="">Email</label>
+            <div class="edit">
+              <input formControlName="email" type="email" placeholder="">
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/address.svg" alt="">Address</label>
+            <div class="edit">
+              <input type="text" formControlName="address">
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/blood.svg" alt="">Blood Type</label>
+            <div class="edit">
+              <select formControlName="blood_type">
+                <option value="">Choose Your Blood Type</option>
+                <option [value]="item" *ngFor="let item of blood_type">{{item}}</option>
+              </select>
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/phone.svg" alt="">Mobile Number</label>
+            <div class="edit">
+              <input type="text" formControlName="phone">
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="one">
+            <label for=""><img src="../../../../assets/dashboard/phone.svg" alt="">Emergency number</label>
+            <div class="edit">
+              <input type="text" formControlName="emgo_phone" placeholder="">
+              <img src="../../../../assets/dashboard/edit.svg" alt="">
+            </div>
+          </div>
+          <div class="save">
+            <button type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

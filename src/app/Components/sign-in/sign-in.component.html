@@ -1,0 +1,120 @@
+<section class="sign_in">
+
+<a class="link-sign"  routerLinkActive="active" aria-current="page" [routerLink]="['/Home']" >
+  <img src="assets/img/logo_banner.svg" alt="" class="logo">
+</a>
+
+
+
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-7  " style="position: relative;">
+      <img src="assets/img/sign_in_bg.png" alt=""  class="overlay">
+      <div class="caresoul">
+
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide >
+        <div class="sign_banner">
+          <img loading="lazy" src="assets/img/sign_in_cares1.png" alt="">
+          <div class="sign_banner_info">
+            <h1>
+              Welcome Back
+            </h1>
+            <p>
+              In the largest gathering of doctors in all specialties.
+            </p>
+          </div>
+        </div>
+
+          </ng-template>
+          <ng-template carouselSlide >
+            <div class="sign_banner">
+              <img loading="lazy" src="assets/img/sign_in_cares1.png" alt="">
+              <div class="sign_banner_info">
+                <h1>
+                  Welcome Back
+                </h1>
+                <p>
+                  In the largest gathering of doctors in all specialties.
+                </p>
+              </div>
+            </div>
+
+              </ng-template>
+              <ng-template carouselSlide >
+                <div class="sign_banner">
+                  <img src="assets/img/sign_in_cares1.png" alt="">
+                  <div class="sign_banner_info">
+                    <h1>
+                      Welcome Back
+                    </h1>
+                    <p>
+                      In the largest gathering of doctors in all specialties.
+                    </p>
+                  </div>
+                </div>
+
+                  </ng-template>
+          </owl-carousel-o>
+      </div>
+    </div>
+    <div class="col-lg-5  ">
+
+
+      <div class="container ">
+        <div class="form_container" data-aos="fade-up"
+        data-aos-duration="3000">
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <span class="Active" [routerLink]="['/sign_in']">Sign in</span>
+            <span class="UnActive" [routerLink]="['/sign_up']">Sign up</span>
+            <div class="mb-4">
+              <label for="exampleInputEmail1" class="form-label"><img class="me-2" src="../../../assets/img/mail.svg" alt=""> Email </label>
+              <input formControlName="email" [ngClass]="{'is-invalid':submitted && form.get('email')?.errors}" placeholder="Enter Your Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputPassword1" class="form-label"> <img  class="me-2" src="../../../assets/img/lock.svg" alt="">Password</label>
+              <input placeholder="Enter Your Password" formControlName="password" [ngClass]="{'is-invalid':submitted && form.get('password')?.errors}" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-4 form-check">
+             <div class="row">
+              <div class="col-md-6">
+                <input type="checkbox" class="form-check-input me-2" id="exampleCheck1">
+                <span class="form-check-label fw-bold">remmber me </span>
+              </div>
+              <div class="col-md-6 forget ">
+
+                <span class="form-check-label fw-bold ">Forget Password?</span>
+              </div>
+             </div>
+            </div>
+            <button type="submit" class="btn mb-3">Sign in</button>
+            <div class="back text-center" [routerLink]="['/Home']">
+              Back To Home Page
+             </div>
+          </form>
+
+        </div>
+        <div class="footer_menu text-end">
+          <ul>
+            <li>
+              <img src="../../../assets/img/footer_1.svg" alt="">
+            </li>
+            <li>
+              <img src="../../../assets/img/footer2.svg" alt="">
+            </li>
+            <li>
+              <img src="../../../assets/img/footer3.svg" alt="">
+            </li>
+            <li>
+              <img src="../../../assets/img/footer4.svg" alt="">
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+ </div>
+</section>

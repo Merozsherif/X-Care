@@ -1,0 +1,87 @@
+<!-- <section class="chat">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="list mb-3">
+<div class="input">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+  <input type="text" placeholder="Add New Chat">
+</div>
+<div class="list-chat my-2">
+<h3 *ngFor="let item of [].constructor(20) ; let i=index">
+  chat {{i+1}}
+</h3>
+</div>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+      <div class="chat-container">
+        <div class="chat-messages">
+          <div class="chat-message my-3" *ngFor="let item of [].constructor(5) ; let i=index" >
+            <h3 class="question">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+            </h3>
+            <h3 class="answer">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos amet laborum necessitatibus cum libero dolores, aliquam iure nemo dignissimos, ducimus iusto error eum nisi voluptates. In perferendis pariatur eius libero.
+
+            </h3>
+          </div>
+        </div>
+        <div class="chat-input  ">
+         <div class="d-flex justify-content-between align-items-center chat_send">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="#1C274C" stroke-width="1.5"></path> <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+          <input type="text" placeholder="Send a message ...">
+          <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Mic</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Mic"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <rect id="Rectangle" stroke="#00507C" stroke-width="2" stroke-linecap="round" x="9" y="3" width="6" height="11" rx="3"> </rect> <line x1="12" y1="18" x2="12" y2="21" id="Path" stroke="#00507C" stroke-width="2" stroke-linecap="round"> </line> <line x1="8" y1="21" x2="16" y2="21" id="Path" stroke="#00507C" stroke-width="2" stroke-linecap="round"> </line> <path d="M19,11 C19,14.866 15.866,18 12,18 C8.13401,18 5,14.866 5,11" id="Path" stroke="#00507C" stroke-width="2" stroke-linecap="round"> </path> </g> </g> </g></svg>
+         </div>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.5003 12H5.41872M5.24634 12.7972L4.24158 15.7986C3.69128 17.4424 3.41613 18.2643 3.61359 18.7704C3.78506 19.21 4.15335 19.5432 4.6078 19.6701C5.13111 19.8161 5.92151 19.4604 7.50231 18.7491L17.6367 14.1886C19.1797 13.4942 19.9512 13.1471 20.1896 12.6648C20.3968 12.2458 20.3968 11.7541 20.1896 11.3351C19.9512 10.8529 19.1797 10.5057 17.6367 9.81135L7.48483 5.24303C5.90879 4.53382 5.12078 4.17921 4.59799 4.32468C4.14397 4.45101 3.77572 4.78336 3.60365 5.22209C3.40551 5.72728 3.67772 6.54741 4.22215 8.18767L5.24829 11.2793C5.34179 11.561 5.38855 11.7019 5.407 11.8459C5.42338 11.9738 5.42321 12.1032 5.40651 12.231C5.38768 12.375 5.34057 12.5157 5.24634 12.7972Z" stroke="#00507C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section> -->
+<section class="chat">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-lg-3">
+        <div class="list mb-3">
+          <div class="input">
+            <div class="new">
+              <img src="../../../../assets/dashboard/plus.svg" alt="">
+              <input type="button" value=" New Chat" (click)="onNewChat()">
+            </div>
+          </div>
+          <div class="list-chat my-2">
+            <h3 *ngFor="let item of sessions; let i = index" (click)="selectSession(item)">
+              {{ item }}
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-lg-9">
+        <div class="chat-container">
+          <div class="chat-messages">
+            <div class="chat-message my-3" *ngFor="let message of messages" [@messageAnimation]>
+              <div *ngIf="message.text" [ngClass]="{'question': message.align !== 'answer', 'answer': message.align === 'answer'}">
+                {{ message.text }}
+              </div>
+              <img *ngIf="message.type === 'image'" [src]="message.src" class="image1 left">
+            </div>
+          </div>
+          <div class="chat-input">
+            <div class="d-flex justify-content-between align-items-center chat_send">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+              <input class="write" type="text" [(ngModel)]="message" placeholder="Send a message ..." #messageInput (keyup.enter)="handleSubmit($event)">
+              <input type="file" class="form-control photo" #fileInput (change)="onFileSelected($event)">
+              <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"></svg>
+              <button class="send" type="submit" (click)="handleSubmit($event)">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

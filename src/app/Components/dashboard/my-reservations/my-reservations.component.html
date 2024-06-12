@@ -1,0 +1,102 @@
+<section class="profile">
+  <div class=" container-fluid">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-sm-3 col-3 left">
+          <div class="bord">
+            <p>Personal Info</p>
+            <ul>
+              <li class="active">
+                <a [routerLink]="['/profile']">
+                  <img src="../../../../assets/dashboard/name.svg " alt="">
+                  <span>Profile</span>
+                </a>
+              </li>
+              <li *ngIf="userRole === 'doctor'">
+                <a [routerLink]="['/doctor']" >
+                  <img src="../../../../assets/dashboard/doctor.svg" alt="">
+                  <span>Doctor</span>
+                </a>
+              </li>
+              <li *ngIf="userRole === 'doctor'">
+                <a [routerLink]="['/clinic']">
+                  <img src="../../../../assets/dashboard/clinic.svg" alt="">
+                  <span>Clinic</span>
+                </a>
+              </li>
+            </ul>
+            <p>Reservation History</p>
+            <ul>
+              <li>
+                <a [routerLink]="['/myReservations']">
+                  <img src="../../../../assets/dashboard/myReservations.svg" alt="">
+                  <span>My Reservations</span>
+                </a>
+              </li>
+              <li *ngIf="userRole === 'doctor'">
+                <a [routerLink]="['/clinicReservations']">
+                  <img src="../../../../assets/dashboard/clinicReservations.svg" alt="">
+                  <span>Clinic Reservations</span>
+                </a>
+              </li>
+              <li *ngIf="userRole === 'doctor'">
+                <a [routerLink]="['/patiantPrescriptions']">
+                  <img src="../../../../assets/dashboard/patientPrescription.svg" alt="">
+                  <span>Patiant Prescriptions</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/Prescriptions']">
+                  <img src="../../../../assets/dashboard/prescriptions.svg" alt="">
+                  <span>Prescriptions</span>
+                </a>
+              </li>
+            </ul>
+            <p *ngIf="userRole === 'doctor'">My Blog Posts</p>
+            <ul *ngIf="userRole === 'doctor'">
+              <li>
+                <a [routerLink]="['/myPost']">
+                  <img src="../../../../assets/dashboard/myPost.svg" alt="">
+                  <span>My Post</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-lg-9 col-sm-9 col-9 right">
+          <div class="box">
+            <table>
+              <thead>
+                <tr>
+                  <th>Doctor Name</th>
+                  <th>Patient Name</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                <th>delete</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let reservation of reservations">
+                  <td>{{ reservation.doctor_name }}</td>
+                  <td>{{ reservation.patient_name }}</td>
+                  <td>{{ reservation.date }}</td>
+                  <td>{{ reservation.time }}</td>
+
+                  <td>
+                    <img style="cursor: pointer;" src="../../../../assets/dashboard/traush.svg" alt="" (click)="del_reservation(reservation.id)">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <div class="box">
+    <img id="photo" src="../../../../assets/dashboard/image.jpg" alt="">
+      <input type="file" id="file">
+      <span for="" id="uploadbtn"><img src="../../../../assets/dashboard/camera.svg" alt=""></label>
+  </div> -->

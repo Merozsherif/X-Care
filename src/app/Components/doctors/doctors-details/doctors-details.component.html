@@ -1,0 +1,105 @@
+<ngx-spinner bdColor = "rgba(255,255,255)" size = "medium" color = "#00507C" type = "square-jelly-box" [fullScreen] = "true"><h6 style="color: #00507C ; font-size: 20px !important;" > Loading... </h6></ngx-spinner>
+
+<section class="doctor_details">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-3" data-aos="fade-down" data-aos-duration="1500" >
+        <div class="row ">
+          <div class="col-md-4">
+            <img [src]="'https://ai-x-care.future-developers.cloud/'+doctor?.profile[0].photo" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>
+                 Dr.{{doctor?.profile[0].name}}
+                </span>
+                 <span class="d-flex justify-content-between align-items-center">
+                <img *ngFor="let item of [].constructor(doctor?.rating)" src="assets/img/rate.png" alt="" style="width: 20px;height: 20px;">
+                <img  *ngFor="let item of [].constructor(5-doctor?.rating)" src="assets/img/rate1.png" alt="" style="width: 20px;height: 20px;">
+              </span>
+              </h5>
+              <p class="card-text mt-3" style="font-size: 18px; height: 45px;">
+
+                {{doctor?.specialites[0].description}}
+
+              </p>
+              <h5 class="card-title mt-2">
+                <img src="assets/img/about.png" alt="" style="width: 20px ;height: 20px;margin-right: 5px;">
+                <span>
+                About
+                </span>
+                <p class="card-text mt-3" style="font-size: 19px; font-weight: 500;height: 80px;">
+
+
+                  {{doctor?.description}}
+
+              </p>
+              </h5>
+              <p class="card-text"><small class="text-muted" style="color:#00507C !important ; font-weight:600 !important ; font-size: 16px !important;"><img class="me-1" src="assets/img/location.jpeg" alt="" style="width: 20px;"> {{doctor?.profile[0].address}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-4">
+      <h5 class="card-title mt-3 mb-4">
+        <img src="assets/img/about.png" alt="" style="width: 20px ;height: 20px;margin-right: 5px;">
+        <span>
+        Clinc
+        </span>
+
+      </h5>
+      <div class="row">
+        <div class="col-6 mb-2" *ngFor="let item of doctor?.organizations[0].pics" data-aos="zoom-in" data-aos-duration="1000">
+
+          <img [src]="'https://ai-x-care.future-developers.cloud/'+item" alt="" style="width: 100%;padding: 10px;border-radius: 20px;">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-4">
+      <div class="form_container" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="card time " >
+<h5 class="card-title text-center mt-3" style="line-height: 1.2;">
+  Booking Information
+</h5>
+<div class="table" style="height: 230px; padding: 0px 20px;">
+  <div class="date mt-1" *ngFor="let item of dates">
+    <h5 class="card-title  d-flex align-items-center" style="font-size: 18px;">
+      <input type="checkbox" [checked]="date==item" (change)="checkValueDate($event , item)">
+  {{item.date |date:'EEEE'}} {{item.date |date:'MM/dd'}}
+    </h5>
+    <div class="row" *ngIf="date==item">
+      <div class="col-md-2 col-4 mb-1 text-center"  *ngFor="let itim of item.time"   [style.border]="itim==x ? '1px solid #00507C' : null">
+        <span (click)="time(itim)" style="font-size: 16px;font-weight: 500; padding: 0px 5px; cursor: pointer;">
+          {{itim}}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<h5 class="card-title text-center">
+  Price:
+</h5>
+<p class="card-title text-center" style="font-size: 20px; font-weight: 500;">
+  {{doctor?.price}}EGP - {{doctor?.duration}}Min
+</p>
+<div class="row mt-3" >
+  <div class="col-9 m-auto">
+    <button class="btn" [disabled]="!date||!x" style="border: 1px solid #00507C; font-size: 19px; width: 100%;" (click)="booking(date)">
+      <span *ngIf="date||x">
+        {{date.date |date:'EEEE'}} {{date.date |date:'MM/dd'}} {{x}}
+      </span>
+      <br *ngIf="date||x">
+Book Session
+    </button>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

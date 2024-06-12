@@ -1,0 +1,289 @@
+<section class="x_care_blogs">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row" *ngIf="loading">
+          <div class="col-6 col-lg-12" *ngFor="let item of [].constructor(4)">
+            <div class="ph-item">
+              <div class="ph-col-12">
+                <div class="ph-picture"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="!loading">
+          <div
+            class="col-6 col-lg-12"
+            data-aos="fade-up"
+            data-aos-duration="1300"
+            *ngFor="let item of blogList[0]"
+          >
+            <img [src]="item" alt="" class="img" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row" *ngIf="loading">
+          <div class="col-12" *ngFor="let item of [].constructor(4)">
+            <div class="ph-item">
+              <div class="ph-col-12">
+                <div class="ph-picture"></div>
+                <div class="ph-row">
+                  <div class="ph-col-12 big mt-3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card" *ngIf="user?.doctor_id">
+              <div
+                class="d-flex justify-content-between align-items-center post_right mb-3"
+              >
+                <img src="assets/img/user-avatar.jpg" alt="" />
+                <input
+                  [(ngModel)]="body"
+                  [ngModelOptions]="{ standalone: true }"
+                  type="text"
+                  placeholder="what's in your mind ?"
+                />
+              </div>
+              <div>
+                <video
+                  [src]="base64Image"
+                  controls
+                  *ngIf="base64Image && uploadVideo"
+                  style="width: 100%; height: 100%"
+                ></video>
+                <img
+                  [src]="base64Image"
+                  alt=""
+                  style="width: 100%; height: 100%"
+                  *ngIf="base64Image && !uploadVideo"
+                />
+              </div>
+              <div
+                class="d-flex justify-content-between align-items-center post_left"
+              >
+                <div class="position-relative">
+                  <img src="../../../../assets/img/about.png" alt="" />
+                  <input
+                    type="file"
+                    #fileInput
+                    class="form-control"
+                    id="imageUpload"
+                    (change)="select($event)"
+                    accept=".png, .jpg, .jpeg"
+                  />
+                  <span>Photo</span>
+                </div>
+                <div class="position-relative">
+                  <img src="../../../../assets/img/about.png" alt="" />
+                  <input
+                    type="file"
+                    #fileInput
+                    class="form-control"
+                    id="imageUpload"
+                    (change)="selectVideo($event)"
+                    accept="video/*"
+                  />
+                  <span>video</span>
+                </div>
+                <div>
+                  <button class="btn" (click)="addPost()">Share Post</button>
+                </div>
+                <!-- <img src="assets/img/user-avatar.jpg" alt="">
+          <input type="text" placeholder="what's in your mind ?"> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="!loading">
+
+          <div class="col-12" *ngFor="let item of blogs_list">
+            <div class="card" data-aos="zoom-in" data-aos-duration="1300">
+              <div
+                class="card-header d-flex justify-content-between align-items-center flex-wrap"
+              >
+                <div
+                  class="d-flex justify-content-between align-items-center post mb-3"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <img
+                      [src]="
+                        'https://ai-x-care.future-developers.cloud/' +
+                        item?.doctor.photo
+                      "
+                      alt=""
+                    />
+                    <div>
+                      <h6>Dr.{{ item?.doctor.name }}</h6>
+                      <span>
+                        {{ item?.create_date.time }}
+                        {{ item?.create_date.date }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  {{ item?.category_id[0].name }}
+                </p>
+              </div>
+              <div class="card-body">
+                <p>{{ item?.body }}</p>
+                <video
+                  *ngIf="item.video"
+                  [src]="
+                    'https://ai-x-care.future-developers.cloud/' +
+                    item?.media_file
+                  "
+                  controls
+                  style="width: 100%; height: 100%"
+                ></video>
+                <img
+                  *ngIf="item?.media_file"
+                  [src]="
+                    'https://ai-x-care.future-developers.cloud/' +
+                    item?.media_file
+                  "
+                  alt=""
+                />
+                <div
+                  class="d-flex justify-content-between align-items-center flex-wrap my-2"
+                >
+                  <div>
+                    <span class="me-2 mt-2">
+                      <img src="../../../../assets/img/like_icon.svg" alt="" />
+                      {{ item?.likes }}
+                    </span>
+                    <span class="me-2 mt-3">
+                      <img
+                        src="../../../../assets/img/dislike_icon.svg"
+                        alt=""
+                      />
+                      {{ item.dislikes }}
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <img
+                        src="../../../../assets/img/comment_icon.svg"
+                        alt=""
+                      />
+                      {{ item.comments }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-footer d-flex justify-content-between align-items-center post_left"
+              >
+                <div (click)="like(item)">
+                  <img src="../../../../assets/img/like_icon.svg" alt="" />
+                  <span>Like</span>
+                </div>
+                <div (click)="dislike(item)">
+                  <img src="../../../../assets/img/dislike_icon.svg" alt="" />
+                  <span>Dislike</span>
+                </div>
+                <div (click)="getComments(item)">
+                  <img src="../../../../assets/img/comment_icon.svg" alt="" />
+                  <span>Comment</span>
+                </div>
+                <!-- <img src="assets/img/user-avatar.jpg" alt="">
+    <input type="text" placeholder="what's in your mind ?"> -->
+              </div>
+              <div
+                class="comments"
+                [style]="
+                  item.slug == slug
+                    ? {
+                        borderTop: '1px solid #00507C',
+                        transition: '.4s',
+                        padding: '15px 0px'
+                      }
+                    : null
+                "
+              >
+                <div *ngIf="item.slug == slug">
+                  <p *ngIf="!comments.length">no comments to show</p>
+                  <div
+                    *ngFor="let item of comments"
+                    class="d-flex justify-content-between align-items-center post_right mb-3"
+                  >
+                    <img
+                      [src]="
+                        'https://ai-x-care.future-developers.cloud/' +
+                        item?.profile.photo
+                      "
+                      alt=""
+                    />
+                    <span>
+                      <b>
+                        {{ item.profile.name }}
+                      </b>
+                      <br />
+                      {{ item.body }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="add_comment position-relative"
+                *ngIf="item.slug == slug"
+              >
+                <img
+                  src="assets/img/send.svg"
+                  (click)="body !=''?addComment(item):null"
+                  alt=""
+                  style="
+                    position: absolute;
+                    top: 20px;
+                    right: 10px;
+                    width: 20px;
+                    cursor: pointer;
+                  "
+                />
+                <div
+                  class="d-flex justify-content-between align-items-center post_right_2 mb-3"
+                >
+                  <img src="assets/img/user-avatar.jpg" alt="" />
+                  <input
+                    [(ngModel)]="body"
+                    [ngModelOptions]="{ standalone: true }"
+                    type="text"
+                    placeholder="what's in your mind ?"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row" *ngIf="loading">
+          <div class="col-6 col-lg-12" *ngFor="let item of [].constructor(4)">
+            <div class="ph-item">
+              <div class="ph-col-12">
+                <div class="ph-picture"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="!loading">
+          <div
+          class="col-6 col-lg-12"
+          data-aos="fade-up"
+          data-aos-duration="1300"
+          *ngFor="let item of blogList[1]"
+        >
+          <img [src]="item" alt="" class="img" />
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+.doctor_details{
+  padding: 150px 0px 50px;
+button{
+  transition: .5s;
+  &:hover{
+background-color: #00507C;
+span{
+  color: #fff;
+
+}
+  color: #fff;
+
+  }
+}
+    *{
+      font-family: "Poppins", sans-serif;
+      color:#00507C
+    }
+    .card-title{
+      font-size: 30px;
+      font-weight: 600;
+    }
+  .card{
+
+    border:none;
+    border-radius: 0px !important;
+
+    .table,.card-text{
+
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 7px;               /* width of the entire scrollbar */
+      }
+      &::-webkit-scrollbar-track {
+        background: #ddd;
+        border-radius: 10px;  /* color of the tracking area */
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #00507C;  /* color of the scroll thumb */
+        border-radius: 10px;  /* roundness of the scroll thumb */
+      }
+    }
+    img{
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+  .time{
+    padding: 20px 10px;
+    border-radius: 35px !important;
+  }
+}

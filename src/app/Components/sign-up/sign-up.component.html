@@ -1,0 +1,134 @@
+<section class="sign_up">
+
+  <a class="link-sign"  routerLinkActive="active" aria-current="page" [routerLink]="['/Home']" >
+    <img src="assets/img/logo_banner.svg" alt="" class="logo">
+  </a>
+
+
+   <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6" style="position: relative;">
+        <img src="assets/img/sign_in_bg.png" alt=""  class="overlay">
+        <div class="caresoul">
+
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide >
+          <div class="sign_banner">
+            <img src="../../../assets/img/signUp-cars.png" alt="">
+            <div class="sign_banner_info">
+              <h1>
+                x-care For dental care
+              </h1>
+              <p>
+                Provides x-care The best and most important dental and jaw services, with the highest quality standards and patient follow-up.
+
+              </p>
+            </div>
+          </div>
+
+            </ng-template>
+            <ng-template carouselSlide >
+              <div class="sign_banner">
+                <img src="../../../assets/img/signUp-cars.png" alt="">
+                <div class="sign_banner_info">
+                  <h1>
+                    x-care For dental care
+                  </h1>
+                  <p>
+                    Provides x-care The best and most important dental and jaw services, with the highest quality standards and patient follow-up.
+
+                  </p>
+                </div>
+              </div>
+
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+      </div>
+      <div class="col-lg-6 ">
+
+
+        <div class="container ">
+          <div class="form_container" data-aos="fade-up"
+          data-aos-duration="3000" >
+
+            <form [formGroup]="form" >
+              <span class="UnActive" [routerLink]="['/sign_in']">Sign in</span>
+              <span class="Active" [routerLink]="['/sign_up']">Sign up</span>
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="exampleInputEmail122" class="form-label"><img class="me-2" src="../../../assets/img/person_icon.svg" alt=""> First Name </label>
+                <input formControlName="first_name" [ngClass]="{'is-invalid':submitted && form.get('first_name')?.errors}" placeholder="First Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="exampleInputEmail122" class="form-label"><img class="me-2" src="../../../assets/img/person_icon.svg" alt=""> Last Name </label>
+                <input  formControlName="last_name" [ngClass]="{'is-invalid':submitted && form.get('last_name')?.errors}"placeholder="Last Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"><img class="me-2" src="../../../assets/img/mail.svg" alt=""> Email </label>
+                <input  formControlName="email" [ngClass]="{'is-invalid':submitted && form.get('email')?.errors}"placeholder="enter your Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"> <img class="me-2" src="../../../assets/img/lock.svg" alt="">Password</label>
+                <input  formControlName="password" [ngClass]="{'is-invalid':submitted && form.get('password')?.errors}"placeholder="enter your Password" type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword13" class="form-label"> <img class="me-2" src="../../../assets/img/lock.svg" alt=""> Confirm Password</label>
+                <input [ngClass]="{'is-invalid':submitted && passConfirm.value ==''}"#passConfirm placeholder="Confirm Password" type="password" class="form-control" id="exampleInputPassword13">
+              </div>
+              <div class="mb-3">
+                <div class="row form__group">
+
+                   <div class="col-md-6">
+                    <div class="radio-group">
+                      <input  [ngClass]="{'is-invalid':submitted && form.get('group_name')?.errors}"value='doctors' formControlName="group_name" id="small" type="radio" class="radio-input" name="size" />
+                      <label for="small" class="radio-label" >
+                        <span class="radio-button"></span>
+                        <span class="radio-label-text"><img class="mx-2" src="../../../assets/img/Doctor.svg" alt=""> Doctor </span></label>
+                    </div>
+                   </div>
+
+                   <div class="col-md-6">
+                    <div class="radio-group">
+                      <input class="radio-label" value='patient'[ngClass]="{'is-invalid':submitted && form.get('group_name')?.errors}" formControlName="group_name" id="large" type="radio" class="radio-input" name="size" />
+                      <label for="large" >
+                        <span class="radio-button"></span>
+                        <img class="mx-2 " src="../../../assets/img/person_icon.svg" alt=""> Patient </label>
+                    </div>
+                   </div>
+
+                </div>
+              </div>
+              <button type="button"  (click)=" submit();createPass(form.get('password')?.value , passConfirm.value)" class="btn mb-3">Sign up</button>
+              <div class="back text-center" [routerLink]="['/Home']">
+                Back To Home Page
+               </div>
+            </form>
+
+          </div>
+          <div class="footer_menu text-end">
+            <ul>
+              <li>
+                <img src="../../../assets/img/footer_1.svg" alt="">
+              </li>
+              <li>
+                <img src="../../../assets/img/footer2.svg" alt="">
+              </li>
+              <li>
+                <img src="../../../assets/img/footer3.svg" alt="">
+              </li>
+              <li>
+                <img src="../../../assets/img/footer4.svg" alt="">
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+   </div>
+  </section>

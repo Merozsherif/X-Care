@@ -1,0 +1,116 @@
+.cart{
+  padding: 100px 0px;
+  .box{
+    *{
+      color: #00507C;
+    }
+    padding: 1px;
+    position: relative;
+    background: linear-gradient(to right, #F53D47, #00517c9a ,#00507C );
+    border-radius: 35px;
+    overflow: hidden;
+    .cart_products{
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 35px;
+      .card{
+        border: none;
+        padding-bottom: 20px;
+        border-radius :0px ;
+        border-bottom:2px solid #00507C ;
+        position: relative;
+        .delete{
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          top:20px;
+          right: 20px;
+          cursor: pointer;
+        }
+        *{
+          color: #00507C;
+        }
+      }
+    }
+    .total_price{
+      border-bottom: 2px solid #00507C ;
+      span{
+        font-weight: 600;
+      }
+      *{
+        color: #00507C;
+      }
+    }
+  }
+  form {
+
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    color: #00507C;
+    border-radius: 33px;
+    padding: 30px ;
+    label{
+      color: #00507C;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 0px;
+      text-transform: capitalize;
+      img{
+        width: 25px;height: 25px;
+      }
+    }
+    .form-check-input{
+     box-shadow: none;
+        width: 20px;height:20px;
+border:1px solid #cfcfcf;
+&:checked{
+  background-color: #00507C;
+}
+    }
+    input.is-invalid{
+      border-bottom:1px solid  #F53D47 !important;
+      color: #F53D47 !important;
+      &:focus{
+        box-shadow: none;
+      outline: none;
+            }
+    }
+    input{
+      transition: .3s;
+      width: 100%;
+      height: 50px;
+      border: none;
+      border-radius: 0;
+      border-bottom: 2px solid #cfcfcf;
+      outline: none;
+      padding: 0px 10px;
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      color: #00507C;
+      line-height: 1.8;
+      caret-color: #00507C !important;
+      &::placeholder{
+color: #cfcfcf;
+font-size: 15px;
+      }
+      &:focus{
+        border-bottom: 2px solid #00507C;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+  }
+  .btn{
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    color: #fff !important;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to right, #F53D47, #00517c9a ,#00507C );
+  }
+}

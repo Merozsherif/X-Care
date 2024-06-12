@@ -1,0 +1,47 @@
+.medicine_details{
+  padding: 150px 0px 60px;
+
+  .card{
+    border: none;
+    color: #00507C;
+    .sign_in_container{
+
+margin-top: 60px;
+      padding: 1px;
+      position: relative;
+      background: linear-gradient(to right, #F53D47, #00517c9a ,#00507C );
+      border-radius: 20px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+      .sign_in {
+        img{
+          width: 30px ;
+          height: 30px;
+        }
+        width: 100%;
+        font-weight: 600;
+        background: #fff;
+        color: #00507C;
+        border-radius: 20px;
+        transition: .3s ease;
+&:hover{
+  color: #fff;
+  background: linear-gradient(to right, #F53D47, #00517c9a ,#00507C );
+}
+      }
+    }
+  }
+  .medicine_details_head{
+    font-size: 22px;
+    color: #00507C;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+  .medicine_details_info{
+    font-size: 16px;
+    color: #00507C;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+}

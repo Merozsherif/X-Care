@@ -1,0 +1,63 @@
+<section class="Xcare_medicine">
+  <div class="Xcare_medicine_banner">
+   <img src="assets/img/medicine_bg.png" alt="" class="overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 m-auto">
+         <div class="row">
+          <div class="col-lg-12" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="Xcare_medicine_banner_text text-center">
+              <h2 class="mb-4">Your medications can be ordered easily .</h2>
+              <div class="input_frame">
+                <img src="assets/img/search_icon.svg" alt="">
+                <input  [(ngModel)]="search"   [ngModelOptions]="{standalone: true}"  type="text" placeholder="enter medication name to search ">
+              </div>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="Xcare_medicine_category_medicines"  >
+
+
+     <div class="container">
+      <div class="row" *ngIf="loading" >
+
+        <div class="col-md-4 col-lg-3 col-sm-6 mb-3" *ngFor="let item of [].constructor(8)">
+          <div class="ph-item">
+            <div class="ph-col-12">
+                <div class="ph-picture"></div>
+                <div class="ph-row">
+                  <div class="ph-col-12 big mt-3"></div>
+                  <div class="ph-col-6 big mt-1"></div>
+                  <div class="ph-col-6 big mt-1"></div>
+                    <div class="ph-col-12 big mt-3"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!loading" >
+
+        <div class="col-md-4 col-lg-3 col-sm-6 mb-3" data-aos="zoom-in" data-aos-duration="3000" *ngFor="let item of (Category_detail|search:search)">
+         <div class="card Xcare_medicine_category_item mb-4" >
+          <img [src]="item.photo" alt="" class="fixed-img">
+
+          <h6 class="text-center mt-3 mb-2 medicine_title" [queryParams]="{name: item.name}" [routerLink]="['/Medicine/medicine_details']">
+           {{item.name}}
+          </h6>
+          <div class="price d-flex justify-content-between align-items-center ">
+<span>{{name}}</span>
+<span>{{item.price}} EGP</span>
+          </div>
+          <span class="sign_in_container mx-2"> <button class="btn sign_in "(click)="addtoCart(item)"><img src="assets/img/cart_icon.svg" alt="" class="me-1"> Add To Cart</button></span>
+
+         </div>
+        </div>
+      </div>
+     </div>
+    </div>
+
+</section>

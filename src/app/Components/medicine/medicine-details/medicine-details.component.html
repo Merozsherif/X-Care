@@ -1,0 +1,52 @@
+<section class="medicine_details" *ngIf="!loading">
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12" data-aos="zoom-in" data-aos-duration="2000" >
+      <div class="card mb-3 " >
+        <div class="row ">
+          <div class="col-lg-3 col-md-4">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide >
+                <img [src]="medicine_details[0].photo" alt="" onerror="this.src='assets/img/banner_side_img.svg'">
+              </ng-template>
+
+              </owl-carousel-o>
+          </div>
+          <!-- details -->
+          <div class="col-md-8 col-lg-9">
+            <div class="card-body">
+              <h5 class="card-title " style="font-size: 30px ; font-weight: 600;">{{medicine_details[0].name}}</h5>
+              <p class="card-text mt-3 fw-bold" style="font-size: 17px; line-height: 1.7;">{{medicine_details[0].description}}</p>
+              <div class="row">
+                <div class="col-lg-3 col-md-4">
+                  <div  class="sign_in_container ">
+                    <div class=" btn sign_in d-flex justify-content-between align-items-center">
+                      <span (click)="decrease()">-</span>
+                      <span>{{this.quantity}}</span>
+                      <span (click)="increase()">+</span>
+                    </div>
+                  </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-5  offset-lg-5 offset-md-3">
+                  <span class="sign_in_container "> <button class="btn sign_in " (click)="addtoCart(medicine_details[0])"><img src="assets/img/cart_icon.svg" alt="" class="me-1"> Add To Cart</button></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" data-aos="zoom-out" data-aos-duration="2000">
+<h5 class="medicine_details_head">
+  Medical Description
+</h5>
+     <h6  class="medicine_details_info fw-bold">
+      {{medicine_details[0].description}}
+     </h6>
+
+    </div>
+   </div>
+  </div>
+</section>
